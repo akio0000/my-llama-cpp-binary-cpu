@@ -6,6 +6,8 @@ echo ========================================
 echo   Llama.cpp Auto Updater (CUDA 12.4)
 echo ========================================
 
+set "CUDA_VERSION=12.4"
+
 :: --- 1. Get latest tag from GitHub API ---
 echo [1/5] Fetching latest release version from GitHub...
 set "API_URL=https://api.github.com/repos/ggml-org/llama.cpp/releases/latest"
@@ -20,7 +22,7 @@ echo Latest version found: %LATEST_TAG%
 
 :: --- 2. Construct Download URL ---
 :: File pattern: llama-TAG-bin-win-cuda-12.4-x64.zip
-set "FILENAME=llama-%LATEST_TAG%-bin-win-cuda-12.4-x64.zip"
+set "FILENAME=llama-%LATEST_TAG%-bin-win-cuda-%CUDA_VERSION%-x64.zip"
 set "DL_URL=https://github.com/ggml-org/llama.cpp/releases/download/%LATEST_TAG%/%FILENAME%"
 
 echo [2/5] Downloading %FILENAME%...
